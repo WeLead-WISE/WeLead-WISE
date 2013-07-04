@@ -1,0 +1,17 @@
+
+  $i = 0;					// NOT CORRECT (used in global scope, so use prefix)
+	$_GLOBALS['phphr_link'] = 0;		// CORRECT
+
+	function doSomething ()			// NOT CORRECT (used in global scope, so use prefix)
+	{
+	}
+
+	function phphr_doSomething ()		// CORRECT
+	{
+	    global $phphr_link;			// NOT CORRECT (no longer used)
+
+	    $i = 0;				// CORRECT
+	    $phphr_i = 0;			// NOT CORRECT (only used in function, don't use prefix)
+	    $_GLOBALS['phphr_link'] = 0;	// CORRECT     (used in global scope, so use prefix)
+	}
+
